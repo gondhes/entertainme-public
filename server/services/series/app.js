@@ -2,7 +2,7 @@ const express = require('express')
 const { connectMongodb, getDatabase } = require('./config/mongodb')
 const router = require('./routes/index')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4002
 
 connectMongodb((connected) => {
   if (connected) {
@@ -17,5 +17,5 @@ app.use(express.json())
 app.use(router)
 
 app.listen(port, () => {
-  console.log(`Entertainme listening at http://localhost:${port}`)
+  console.log(`Series listening at http://localhost:${port}`)
 })
