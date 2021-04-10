@@ -28,9 +28,19 @@ class TvController {
   }
 
   static create(req, res, next){
-    Tv.create(req.body)
+    const { title, overview, poster_path, popularity, tags} = req.body
+    const splitTags = tags.split(',')
+    const trimTags = splitTags.map(e => e.trim())
+    const newSeries = {
+      title,
+      overview,
+      poster_path,
+      popularity,
+      tags: trimTags
+    }
+    Tv.create(newSeries)
     .then(result => {
-      res.status(201).json(result)
+      res.status(201).json(result.ops)
     })
     .catch(err=> {
       console.log(err)
@@ -41,16 +51,37 @@ class TvController {
   }
 
   static update(req, res, next){
-    Tv.update(req.params.id, req.body)
+    const { id } = req.params
+    const { title, overview, poster_path, popularity, tags} = req.body
+    const splitTags = tags.split(',')
+    const trimTags = splitTags.map(e => e.trim())
+    const newSeries = {
+      title,
+      overview,
+      poster_path,
+      popularity,
+      tags: trimTags
+    }
+    Tv.update(id, newSeries)
     .then(result => {
-      res.status(200).json(result)
+      res.status(200).json({
+        message : "Movie updated successfully"
+      })
+    })
+    .catch(err=> {
+      console.log(err)
+      res.status(500).json({
+        message : "Internal Server Error"
+      })
     })
   }
 
   static delete(req, res, next){
     Tv.delete(req.params.id)
     .then(result => {
-      res.status(200).json(result)
+      res.status(200).json({
+        message : "Movie deleted successfully"
+      })
     })
     .catch(err=> {
       console.log(err)

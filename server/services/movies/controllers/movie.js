@@ -28,9 +28,19 @@ class MovieController {
   }
 
   static create(req, res, next){
-    Movie.create(req.body)
+    const { title, overview, poster_path, popularity, tags} = req.body
+    const splitTags = tags.split(',')
+    const trimTags = splitTags.map(e => e.trim())
+    const newMovie = {
+      title,
+      overview,
+      poster_path,
+      popularity,
+      tags: trimTags
+    }
+    Movie.create(newMovie)
     .then(result => {
-      res.status(201).json(result)
+      res.status(201).json(result.ops)
     })
     .catch(err=> {
       console.log(err)
@@ -41,16 +51,37 @@ class MovieController {
   }
 
   static update(req, res, next){
-    Movie.update(req.params.id, req.body)
+    const { id } = req.params
+    const { title, overview, poster_path, popularity, tags} = req.body
+    const splitTags = tags.split(',')
+    const trimTags = splitTags.map(e => e.trim())
+    const newMovie = {
+      title,
+      overview,
+      poster_path,
+      popularity,
+      tags: trimTags
+    }
+    Movie.update( id, newMovie)
     .then(result => {
-      res.status(200).json(result)
+      res.status(200).json({
+        message : "Movie updated successfully"
+      })
+    })
+    .catch(err=> {
+      console.log(err)
+      res.status(500).json({
+        message : "Internal Server Error"
+      })
     })
   }
 
   static delete(req, res, next){
     Movie.delete(req.params.id)
     .then(result => {
-      res.status(200).json(result)
+      res.status(200).json({
+        message : "Movie deleted successfully"
+      })
     })
     .catch(err=> {
       console.log(err)
