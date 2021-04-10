@@ -1,0 +1,77 @@
+[
+    {
+        "title": "Hamilton",
+        "overview": "Presenting the tale of American founding father Alexander Hamilton, this filmed version of the original Broadway smash hit is the story of America then, told by America now.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/h1B7tW0t399VDjAcWJh8m87469b.jpg",
+        "popularity": 20.626,
+        "tags": [
+            "musical", "biography", "stage show", "live theatre", "live musical"
+        ]
+    },
+    {
+        "title": "Forrest Gump",
+        "overview": "A man with a low IQ has accomplished great things in his life and been present during significant historic events—in each case, far exceeding what anyone imagined he could do. But despite all he has achieved, his one true love eludes him.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/h5J4W4veyxMXDMjeNxZI46TsHOb.jpg",
+        "popularity": 42.303,
+        "tags": [
+            "military", "friendship", "love", "vietnam war", "mentally disabled"
+        ]
+    },
+    {
+        "title": "Inception",
+        "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: 'inception', the implantation of another person's idea into a target's subconscious.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+        "popularity": 47.246,
+        "tags": [
+            "spy", "dream", "manipulation", "allegory", "subconscious"
+        ]
+    },
+    {
+        "title": "Spirited Away",
+        "overview": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+        "popularity": 50.954,
+        "tags": [
+            "witch", "magic", "anime", "spirit", "youkai"
+        ]
+    }
+]
+
+[
+    {
+        "title": "Game of Thrones",
+        "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+        "popularity": 455.601,
+        "tags": [
+            "kingdom", "dragon", "intrigue", "king", "fantasy world"
+        ]
+    },
+    {
+        "title": "WandaVision",
+        "overview": "Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/glKDfE6btIRcVB5zrjspRIs4r52.jpg",
+        "popularity": 731.258,
+        "tags": [
+            "superhero", "supernatural", "marvel", "suburbia", "sitcom"
+        ]
+    },
+    {
+        "title": "The Mandalorian",
+        "overview": "After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+        "popularity": 336.25,
+        "tags": [
+            "star wars", "bounty hunter", "space adventure", "space exploration", "space opera"
+        ]
+    },
+    {
+        "title": "The Umbrella Academy",
+        "overview": "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+        "poster_path": "https://www.themoviedb.org/t/p/w1280/scZlQQYnDVlnpxFTxaIv2g0BWnL.jpg",
+        "popularity": 271.312,
+        "tags": [
+            "hero", "superhero", "time travel", "end of world", "siblings"
+        ]
+    }
+]
