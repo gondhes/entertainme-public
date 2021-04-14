@@ -1,8 +1,10 @@
 import '../App.css'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { useQuery } from "@apollo/client"
-import { GET_MOVIE } from "../queries"
+import { GET_MOVIE } from "../queries/query"
+import { favoriteVar } from "../config/vars"
+import { useHistory } from 'react-router-dom'
 
 
 function MovieDetail() {
@@ -10,6 +12,7 @@ function MovieDetail() {
   let { id } = useParams()
 
   const { data, loading, error } = useQuery(GET_MOVIE, { variables: { id } })
+  const history = useHistory()
 
   if(loading) {
     return (
@@ -32,24 +35,37 @@ function MovieDetail() {
     ) 
   }
 
+  function addToFavorite() {
+    const existingFavorites = favoriteVar()
+    const newFav = {
+      _id: id,
+      title: data.movie.title,
+      poster_path: data.movie.poster_path
+    }
+    const temp = existingFavorites.concat(newFav)
+    favoriteVar(temp)
+    history.push('/fav')
+  }
+
   return (
     <>
     <div className="App">
       <section>
         <div className="container">
-          <h2>Detail Information</h2>
+          <h1>{data.movie.title}</h1>
           <div className="row">
             <div className="col-4 mt-5">
               <Card className="bg-dark mb-3 text-center">
               <Card.Img className="div-img img-fluid" src={data.movie.poster_path} alt="poster" style={{ position: 'relative' }}></Card.Img>
+              <Button onClick={addToFavorite}>Add to Favorite</Button>
               </Card>
+              <Button style={{marginRight: 15, marginLeft: 15, width: 75}}>Edit</Button>
+              <Button style={{marginRight: 15, marginLeft: 15, width: 75}}>Delete</Button>
             </div>
 
             <div className="col-8 mt-5">
               <Card className="bg-dark mb-3 text-left">
                 <Card.Body>
-                  <h1>{data.movie.title}</h1>
-                  <br/>
                   <h4>Overview :</h4>
                   <h5>{data.movie.overview}</h5>
                   <br/>

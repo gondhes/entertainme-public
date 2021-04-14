@@ -6,7 +6,7 @@ import {
 function Navbar() {
   return (
     <div className="App-navbar">
-      <div className="row">
+      <div className="nav">
         <div className="logo-row">
           <img src="../../logo.png" alt="Entertainme Logo" className="logo"/>
         </div>

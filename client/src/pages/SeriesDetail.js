@@ -1,8 +1,8 @@
 import '../App.css'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { useQuery } from "@apollo/client"
-import { GET_SERIES } from "../queries"
+import { GET_SERIES } from "../queries/query"
 
 
 function SeriesDetail() {
@@ -37,19 +37,18 @@ function SeriesDetail() {
     <div className="App">
       <section>
         <div className="container">
-          <h2>Detail Information</h2>
+          <h1>{data.series.title}</h1>
           <div className="row">
             <div className="col-4 mt-5">
               <Card className="bg-dark mb-3 text-center">
               <Card.Img className="div-img img-fluid" src={data.series.poster_path} alt="poster" style={{ position: 'relative' }}></Card.Img>
+              <Button>Add to Favorite</Button>
               </Card>
             </div>
 
             <div className="col-8 mt-5">
               <Card className="bg-dark mb-3 text-left">
                 <Card.Body>
-                  <h1>{data.series.title}</h1>
-                  <br/>
                   <h4>Overview :</h4>
                   <h5>{data.series.overview}</h5>
                   <br/>

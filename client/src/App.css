@@ -4,6 +4,8 @@
 
 .App {
   text-align: center;
+  color: white;
+  margin-bottom: 100px;
 }
 
 .App-navbar {
@@ -46,6 +48,18 @@
   margin-top: 30px;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  padding: 5;
+  margin-right: 5;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -56,6 +70,13 @@
 }
 
 .row {
+  background-color: #282c34;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nav {
   background-color: #282c34;
   width: 100%;
   margin: 0 auto;

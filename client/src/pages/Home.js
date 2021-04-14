@@ -1,7 +1,9 @@
 import '../App.css'
 import { useQuery } from "@apollo/client"
-import { GET_DATA } from "../queries"
+import { GET_DATA } from "../queries/query"
 import { Card } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
+
 
 import MovieCard from "../components/MovieCard"
 import SeriesCard from "../components/SeriesCard"
@@ -9,6 +11,7 @@ import SeriesCard from "../components/SeriesCard"
 function Home() {
 
   const { data, loading, error } = useQuery(GET_DATA)
+  const history = useHistory()
 
   if(loading) {
     return (
@@ -31,6 +34,10 @@ function Home() {
     ) 
   }
 
+  const toAddMovie = () => {
+    history.push('/add')
+  }
+
   return (
     <div className="App">
       <section>
@@ -43,7 +50,7 @@ function Home() {
               })
             }
             
-            <div className="col-3 mt-5">
+            <div className="col-3 mt-5" onClick={() => toAddMovie()}>
               <Card className="bg-dark border mb-3 text-center">
               <Card.Img className="div-img img-fluid" src="../../blank.jpg" alt="poster" style={{ position: 'relative' }}></Card.Img>
                 <Card.Body>

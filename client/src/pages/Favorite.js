@@ -1,11 +1,26 @@
 import '../App.css'
+import { useReactiveVar } from "@apollo/client"
+import { favoriteVar } from "../config/vars"
+import MovieCard from "../components/MovieCard"
 
 function Favorite() {
+
+  const favorites = useReactiveVar(favoriteVar)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Favorite</h1>
-      </header>
+      <section>
+        <div className="container">
+          <h2>Favorites Collection</h2>
+          <div className="row">
+            {
+              favorites?.map(movie => {
+                return <MovieCard movie={movie} key={movie._id}></MovieCard>
+              })
+            }
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
