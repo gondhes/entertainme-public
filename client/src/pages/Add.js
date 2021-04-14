@@ -9,7 +9,6 @@ import { Form, Button } from 'react-bootstrap'
 
 function AddMovie() {
 
-  // const [addMovie] = useMutation(ADD_MOVIE)
   const [addMovie, { data: mutationDataResult, loading, error }] = useMutation(ADD_MOVIE, {
     refetchQueries:[{ query: GET_DATA }]
   })
@@ -37,13 +36,7 @@ function AddMovie() {
 
   function saveMovie(event) {
     event.preventDefault();
-    // addMovie({
-    //   variables: {
-    //   MovieInput: movie,
-    //   },
-    //   refetchQueries: ["GetMovies"],
-    // })
-
+    
     if(movie.title && movie.overview && movie.poster_path && movie.popularity && movie.tags){
       addMovie({
           variables: {

@@ -1,8 +1,9 @@
 import '../App.css'
 import { Card, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import { useQuery } from "@apollo/client"
-import { GET_MOVIE } from "../queries/query"
+import { useQuery, useMutation } from "@apollo/client"
+import { GET_DATA, GET_MOVIE } from "../queries/query"
+import { DELETE_MOVIE } from "../queries/mutation"
 import { favoriteVar } from "../config/vars"
 import { useHistory } from 'react-router-dom'
 
@@ -12,6 +13,9 @@ function MovieDetail() {
   let { id } = useParams()
 
   const { data, loading, error } = useQuery(GET_MOVIE, { variables: { id } })
+  const [deleteMovie] = useMutation(DELETE_MOVIE, {
+    refetchQueries: [{ query: GET_DATA }]
+  })
   const history = useHistory()
 
   if(loading) {
@@ -49,6 +53,15 @@ function MovieDetail() {
     history.push('/fav')
   }
 
+  function delMovie(id) {
+    deleteMovie({
+        variables: {
+          id
+        }
+    })
+    history.push('/')
+  }
+
   return (
     <>
     <div className="App">
@@ -62,7 +75,7 @@ function MovieDetail() {
               <Button onClick={addToFavorite}>Add to Favorite</Button>
               </Card>
               <Button style={{marginRight: 15, marginLeft: 15, width: 75}}>Edit</Button>
-              <Button style={{marginRight: 15, marginLeft: 15, width: 75}}>Delete</Button>
+              <Button style={{marginRight: 15, marginLeft: 15, width: 75}} onClick={() => delMovie(data.movie._id)}>Delete</Button>
             </div>
 
             <div className="col-8 mt-5">
