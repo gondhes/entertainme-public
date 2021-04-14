@@ -1,5 +1,5 @@
 import '../App.css'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { useQuery } from "@apollo/client"
 import { GET_SERIES } from "../queries/query"
@@ -42,7 +42,6 @@ function SeriesDetail() {
             <div className="col-4 mt-5">
               <Card className="bg-dark mb-3 text-center">
               <Card.Img className="div-img img-fluid" src={data.series.poster_path} alt="poster" style={{ position: 'relative' }}></Card.Img>
-              <Button>Add to Favorite</Button>
               </Card>
             </div>
 

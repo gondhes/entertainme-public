@@ -2,21 +2,25 @@ import '../App.css'
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { useHistory } from 'react-router-dom'
+import { GET_DATA } from '../queries/query'
 import { ADD_MOVIE } from '../queries/mutation'
 import { Form, Button } from 'react-bootstrap'
 
 
 function AddMovie() {
 
-  const [addMovie] = useMutation(ADD_MOVIE)
+  // const [addMovie] = useMutation(ADD_MOVIE)
+  const [addMovie, { data: mutationDataResult, loading, error }] = useMutation(ADD_MOVIE, {
+    refetchQueries:[{ query: GET_DATA }]
+  })
   const history = useHistory()
 
   const [movie, setMovie] = useState({
     title: '',
     overview: '',
     poster_path: '',
-    popularity: '',
-    tags: []
+    popularity: 0,
+    tags: ''
   })
 
   function onChangeForm(event) {
@@ -33,12 +37,31 @@ function AddMovie() {
 
   function saveMovie(event) {
     event.preventDefault();
-    addMovie({
-      variables: {
-      MovieInput: movie,
-      },
-      refetchQueries: ["GetMovies"],
-    })
+    // addMovie({
+    //   variables: {
+    //   MovieInput: movie,
+    //   },
+    //   refetchQueries: ["GetMovies"],
+    // })
+
+    if(movie.title && movie.overview && movie.poster_path && movie.popularity && movie.tags){
+      addMovie({
+          variables: {
+              newMovie: { ...movie, popularity: parseFloat(movie.popularity) }
+          }
+      })
+        setMovie({
+          title: '',
+          overview: '',
+          poster_path: '',
+          popularity: 0,
+          tags: ''
+      })
+    }
+    else{
+        console.log('saving movie failed')
+    }
+
     history.push("/")
   }
 

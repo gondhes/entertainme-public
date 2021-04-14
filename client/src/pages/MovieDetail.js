@@ -42,8 +42,10 @@ function MovieDetail() {
       title: data.movie.title,
       poster_path: data.movie.poster_path
     }
-    const temp = existingFavorites.concat(newFav)
-    favoriteVar(temp)
+    if(existingFavorites.find(movie => movie._id === newFav._id) === undefined ) {
+      const temp = existingFavorites.concat(newFav)
+      favoriteVar(temp)
+    }
     history.push('/fav')
   }
 
