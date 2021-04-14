@@ -13,6 +13,14 @@ export const ADD_MOVIE = gql`
   }
 `
 
+export const UPDATE_MOVIE = gql`
+  mutation UpdateMovie($newMovie: MovieInput) {
+    updateMovie(movie: $newMovie) {
+      message
+    }
+  }
+`
+
 export const DELETE_MOVIE = gql`
   mutation DeleteMovie($id: ID) {
     deleteMovie(id: $id) {

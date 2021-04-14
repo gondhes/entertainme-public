@@ -8,6 +8,7 @@ import Favorite from "./pages/Favorite"
 import MovieDetail from "./pages/MovieDetail"
 import SeriesDetail from "./pages/SeriesDetail"
 import AddMovie from "./pages/Add"
+import UpdateMovie from "./pages/Edit"
 import Navbar from "./components/Navbar";
 
 import {
@@ -24,6 +25,9 @@ function App() {
           <Navbar />
 
           <Switch>
+            <Route path="/edit/:id">
+              <UpdateMovie />
+            </Route>
             <Route path="/add">
               <AddMovie />
             </Route>

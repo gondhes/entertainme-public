@@ -9,7 +9,7 @@ import { Form, Button } from 'react-bootstrap'
 
 function AddMovie() {
 
-  const [addMovie, { data: mutationDataResult, loading, error }] = useMutation(ADD_MOVIE, {
+  const [addMovie] = useMutation(ADD_MOVIE, {
     refetchQueries:[{ query: GET_DATA }]
   })
   const history = useHistory()
@@ -25,9 +25,6 @@ function AddMovie() {
   function onChangeForm(event) {
     let { name, value } = event.target;
 
-    if (name === "popularity") {
-    value = Number(value);
-    }
     setMovie({
     ...movie,
     [name]: value,

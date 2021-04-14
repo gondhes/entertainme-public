@@ -62,6 +62,10 @@ function MovieDetail() {
     history.push('/')
   }
 
+  function editMovie(id) {
+    history.push('/edit/' + id)
+  }
+
   return (
     <>
     <div className="App">
@@ -74,7 +78,7 @@ function MovieDetail() {
               <Card.Img className="div-img img-fluid" src={data.movie.poster_path} alt="poster" style={{ position: 'relative' }}></Card.Img>
               <Button onClick={addToFavorite}>Add to Favorite</Button>
               </Card>
-              <Button style={{marginRight: 15, marginLeft: 15, width: 75}}>Edit</Button>
+              <Button style={{marginRight: 15, marginLeft: 15, width: 75}} onClick={() => editMovie(data.movie._id)}>Edit</Button>
               <Button style={{marginRight: 15, marginLeft: 15, width: 75}} onClick={() => delMovie(data.movie._id)}>Delete</Button>
             </div>
 
