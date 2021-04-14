@@ -22,7 +22,7 @@ function App() {
           <Navbar />
 
           <Switch>
-            <Route path="/movies">
+            <Route path="/movies/:id">
               <Detail />
             </Route>
             <Route path="/fav">
