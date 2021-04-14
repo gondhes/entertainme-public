@@ -6,10 +6,17 @@ import {
 function Navbar() {
   return (
     <div className="App-navbar">
-        {/* <div className="mt-5"> */}
-          <Link to="/">Home |</Link>
-          <Link to="/fav"> Favorite</Link>
-        {/* </div> */}
+      <div className="row">
+        <div className="logo-row">
+          <img src="../../logo.png" alt="Entertainme Logo" className="logo"/>
+        </div>
+        <div className="main-nav">
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/fav">Favorite</Link></li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
