@@ -24,14 +24,8 @@ const seriesResolvers = {
     series: async (_, args) => {
       const { id } = args
       try {
-        const seriesData = await redis.get('series:data')
-        if(!seriesData) {
-          const { data } = await axios.get(seriesUrl + id) 
-          redis.set('series:data', JSON.stringify(data))
-          return data
-        } else {
-          return JSON.parse(seriesData)
-        }
+        const { data } = await axios.get(seriesUrl + id) 
+        return data
       } catch(err) {
         return err
       }

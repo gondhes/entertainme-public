@@ -5,7 +5,8 @@ import client from "./config/graphql"
 
 import Home from "./pages/Home"
 import Favorite from "./pages/Favorite"
-import Detail from "./pages/Detail"
+import MovieDetail from "./pages/MovieDetail"
+import SeriesDetail from "./pages/SeriesDetail"
 import Navbar from "./components/Navbar";
 
 import {
@@ -22,8 +23,11 @@ function App() {
           <Navbar />
 
           <Switch>
+            <Route path="/series/:id">
+              <SeriesDetail />
+            </Route>
             <Route path="/movies/:id">
-              <Detail />
+              <MovieDetail />
             </Route>
             <Route path="/fav">
               <Favorite />
