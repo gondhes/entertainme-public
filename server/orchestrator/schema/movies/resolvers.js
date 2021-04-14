@@ -24,14 +24,8 @@ const moviesResolvers = {
     movie: async (_, args) => {
       const { id } = args
       try {
-        const movieData = await redis.get('movie:data')
-        if(!movieData) {
-          const { data } = await axios.get(moviesUrl + id)
-          redis.set('movie:data', JSON.stringify(data))
-          return data
-        } else {
-          return JSON.parse(movieData)
-        }
+        const { data } = await axios.get(moviesUrl + id)
+        return data
       } catch(err) {
         return err
       }
